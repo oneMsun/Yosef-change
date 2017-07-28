@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+  <script>
+    // 50个小孩儿，编号从 1 - 50，之后这些小孩儿围成一圈，依次报数，1、2、3 输到3的小孩儿就退出这个圈，表示他已经结束了游戏。问：最后获得胜利的那个小孩的编号是多少？
+   var gameOut = function(pNum){
+   	var players = [];
+   	for(var i=0;i<pNum;i++){
+   		players[i] = i+1;
+
+   	}
+   	console.log(players);
+   	var flag = 0;
+   	while(players.length>1){
+   		var outPlayerNum = 0;
+   		var len = players.length;
+   		for(var i=0;i<len;i++){
+   			flag++;
+   			if(flag === 3){
+   				flag = 0;
+   				// console.log('出局' + players[i-outPlayerNum] );
+   				players.splice(i-outPlayerNum,1);
+   				outPlayerNum++;
+   			}
+   		}
+   	}
+   	return players[0];
+   }
+   console.log('获胜者是：' + gameOut(8));
+  </script>
+</body>
+</html>
